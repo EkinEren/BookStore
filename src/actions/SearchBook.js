@@ -2,42 +2,40 @@ export const FETCH_BOOKS_BEGIN = 'FETCH_BOOKS_BEGIN';
 export const FETCH_BOOKS_SUCCESS = 'FETCH_BOOKS_SUCCESS';
 export const FETCH_BOOKS_FAILURE = 'FETCH_BOOKS_FAILURE';
 
-const APIKEY = process.env.REACT_APP_GOOGLE_BOOKS_API_KEY;
-let input = 'flowers';
-const apiurl = `https://www.googleapis.com/books/v1/volumes?q=${input}&printType=books&key=${APIKEY}`
+const APIKEY = process.env.REACT_APP_BOOKS_API_KEY;
+const apiurl = `https://www.googleapis.com/books/v1/volumes?q=marktwain&printType=books&key=AIzaSyBCox8les0CfjfMSKuBhGmrYQmklFHv7iA`
 
-export const fetchBooksBegin = () => ({
+//request
+export const fetchBooksRequest = () => ({
     type: FETCH_BOOKS_BEGIN
 });
 
-export const fetchBooksSuccess = books => ({
+export const fetchBooksSuccess = (payload) => ({
     type: FETCH_BOOKS_SUCCESS,
-    payload: { books }
+    payload
 });
 
-export const fetchBooksFailure = error => ({
-    type: FETCH_BOOKS_FAILURE,
-    payload: { error }
+export const fetchBooksFailure = () => ({
+    type: FETCH_BOOKS_FAILURE
 });
 
-export function fetchBooks() {
-    return dispatch => {
-        dispatch(fetchBooksBegin());
-        return fetch(apiurl)
-            .then(handleErrors)
-            .then(res => res.json())
-            .then(json => {
-                dispatch(fetchBooksSuccess(json.products));
-                return json.products;
-            })
-            .catch(error => dispatch(fetchBooksFailure(error)));
-    };
+
+//Fetch url & dispatch
+export function fetchBooksWithRedux() {
+    return (dispatch) => {
+        dispatch(fetchBooksRequest());
+        return fetchBooks().then(([response, json]) => {
+            if (response.status === 200) {
+                dispatch(fetchBooksSuccess(json))
+            }
+            else {
+                dispatch(fetchBooksFailure())
+            }
+        })
+    }
 }
 
-// Handle HTTP errors since fetch won't.
-function handleErrors(response) {
-    if (!response.ok) {
-        throw Error(response.statusText);
-    }
-    return response;
+function fetchBooks() {
+    return fetch(apiurl, { method: 'GET' })
+        .then(response => Promise.all([response, response.json()]));
 }

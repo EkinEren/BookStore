@@ -23,20 +23,27 @@ const searchReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                books: action.payload.books
+                books: title(action.payload)
             };
 
         case FETCH_BOOKS_FAILURE:
             return {
                 ...state,
                 loading: false,
-                error: action.payload.error,
+                error: "Error!",
                 books: []
             };
 
         default:
             return state;
     }
+}
+
+function title(payload) {
+    console.log(payload);
+    const { items } = payload;
+    console.log(items);
+    return items.map(item => (item.volumeInfo.title))
 }
 
 export default searchReducer;

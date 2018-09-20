@@ -1,44 +1,44 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchBooks } from "../actions/SearchBook";
+import { fetchBooksWithRedux } from "../actions/SearchBook";
+import { Icon, Spin } from "antd";
+
+const antLoadingIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 
 class Browse extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            input: ''
+        }
+    }
+    componentDidMount() {
+        this.props.fetchBooksWithRedux();
     }
 
-    componentDidMount() {
-        this.props.dispatch(fetchBooks());
-    }
 
     render() {
-        const { error, loading, books } = this.props;
-
-        if (error) {
-            return <div>Error! {error.message}</div>;
-        }
-
-        if (loading) {
-            return <div>Loading...</div>; //antd load again
-        }
-
+        { console.log(this.props.books) }
         return (
             <ul>
-                {books.map(book =>
-                    <li key={book.id}>{book.name}</li>
-                )}
+                {
+                    this.props.books &&
+                    this.props.books.map((book) => {
+                        return (
+                            <li key={book.index}>{book}</li>
+                        )
+                    })
+                }
             </ul>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    books: state.books.items,
-    loading: state.books.loading,
-    error: state.books.error
+    books: state.books
 });
 
-connect(mapStateToProps)(Browse);
+let Container = connect(mapStateToProps, { fetchBooksWithRedux })(Browse);
 
-export default Browse;
+export default Container;
