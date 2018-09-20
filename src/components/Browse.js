@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchBooksWithRedux } from "../actions/SearchBook";
-import { Icon, Spin } from "antd";
+import { Spin, Icon } from "antd";
 import CardItem from "./CardItem";
+import '../styles/Card.css';
 
 const antLoadingIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 
@@ -14,8 +15,16 @@ class Browse extends React.Component {
             input: ''
         }
     }
-    componentDidMount() {
-        this.props.fetchBooksWithRedux();
+
+    handleSubmit = (e) => {
+
+        e.preventDefault();
+        this.props.fetchBooksWithRedux(this.state.input);
+    }
+
+    handleChange = (e) => {
+
+        this.state.input = e.target.value;
     }
 
 
@@ -32,7 +41,16 @@ class Browse extends React.Component {
         }
 
         return (
-            <ul>
+            <div>
+                <form className="well" layout="inline" onSubmit={this.handleSubmit}>
+                    <fieldset className="fieldset">
+                        <legend>Search Books...</legend>
+                        <label htmlFor="title" style={{ fontSize: "large" }}> Title: </label>
+                        <input type="text" id="title" name="title" style={{ width: 200, marginLeft: 20 }} onChange={this.handleChange} />&nbsp;
+                        <button type="primary" htmlType="submit" className="Button-space"> Submit </button>
+                        <button type="dange" htmlType="reset" className="Button-space" > Reset </button>
+                    </fieldset>
+                </form>
                 {
                     this.props.books &&
                     this.props.books.map((book, index) => {
@@ -46,7 +64,7 @@ class Browse extends React.Component {
                         )
                     })
                 }
-            </ul>
+            </div>
         );
     }
 }

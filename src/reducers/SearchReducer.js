@@ -15,8 +15,7 @@ const searchReducer = (state = initialState, action) => {
         case FETCH_BOOKS_BEGIN:
             return {
                 ...state,
-                loading: true,
-                error: null
+                loading: true
             };
 
         case FETCH_BOOKS_SUCCESS:
