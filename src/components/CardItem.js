@@ -1,26 +1,23 @@
 import React from 'react';
 import '../styles/Card.css';
-import { Card } from 'antd';
+import { Card, Col, Row } from 'antd';
 
+//max-height in card.css
 class CardItem extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
             <div>
-                <br />
-                <Card
-                    title={this.props.title}
-                    style={{ width: 300 }}
-                    className="well"
-                    cover={<img src={this.props.image} alt="Not available" />}
-                >
-                    <p>{this.props.year}</p>
-                    <p>{this.props.description}</p>
-                </Card>
-                <br />
+                <Row gutter={12}>
+                    <Card
+                        title={this.props.title}
+                        style={{ width: 150 }}
+                        className="well"
+                        cover={<img src={this.props.image} alt="Not available" />}
+                    >
+                        <p>{this.props.year}</p>
+                    </Card>
+                </Row>
             </div>
         );
     }
