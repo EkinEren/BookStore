@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import '../styles/Card.css';
 import { Card } from 'antd';
 
 class CardItem extends React.Component {

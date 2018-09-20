@@ -30,7 +30,7 @@ const searchReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                error: "Error!",
+                error: "Error! Books couldn't be loaded.",
                 books: []
             };
 
@@ -43,7 +43,7 @@ function title(payload) {
     console.log(payload);
     const { items } = payload;
     console.log(items);
-    return items.map(item => (item.volumeInfo.title))
+    return items.map(item => (item))
 }
 
 export default searchReducer;

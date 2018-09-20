@@ -3,7 +3,7 @@ export const FETCH_BOOKS_SUCCESS = 'FETCH_BOOKS_SUCCESS';
 export const FETCH_BOOKS_FAILURE = 'FETCH_BOOKS_FAILURE';
 
 const APIKEY = process.env.REACT_APP_BOOKS_API_KEY;
-const apiurl = `https://www.googleapis.com/books/v1/volumes?q=marktwain&printType=books&key=AIzaSyBCox8les0CfjfMSKuBhGmrYQmklFHv7iA`
+const apiurl = `https://www.googleapis.com/books/v1/volumes?q=marktwain&printType=books&key=${APIKEY}`
 
 //request
 export const fetchBooksRequest = () => ({

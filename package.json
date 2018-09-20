@@ -1,7 +1,8 @@
 {
   "name": "bookapp",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage": ".",
   "dependencies": {
     "antd": "^3.9.2",
     "bootstrap": "^4.1.3",
