@@ -4,7 +4,12 @@ import { Card, Button, Modal } from 'antd';
 
 class CardItem extends React.Component {
 
-    state = { visible: false }
+    constructor(props) {
+        super(props);
+        this.state = {
+            isVisible: false
+        }
+    }
 
     showModal = () => {
         this.setState({
@@ -26,7 +31,6 @@ class CardItem extends React.Component {
         });
     }
 
-
     render() {
         return (
             <div style={{ display: "inline-block", padding: 30 }}>
@@ -45,9 +49,7 @@ class CardItem extends React.Component {
                         onOk={this.handleOk}
                         onCancel={this.handleCancel}
                     >
-                        <p>Some contents...</p>
-                        <p>Some contents...</p>
-                        <p>Some contents...</p>
+                        <p>{this.props.description}</p>
                     </Modal>
                 </Card>
             </div>
@@ -56,3 +58,5 @@ class CardItem extends React.Component {
 }
 
 export default CardItem;
+
+//add functionality to "add to cart" from redux

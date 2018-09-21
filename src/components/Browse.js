@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { fetchBooksWithRedux } from "../actions/SearchBook";
 import { Spin, Icon, Button, Form, Input } from "antd";
@@ -63,8 +63,8 @@ class Browse extends React.Component {
                                     key={index}
                                     title={book.volumeInfo.title}
                                     image={book.volumeInfo.imageLinks.smallThumbnail}
-                                    year={book.volumeInfo.publishedDate} />
-
+                                    year={book.volumeInfo.publishedDate}
+                                    description={book.volumeInfo.description} />
                             )
                         })
                     }
@@ -75,9 +75,19 @@ class Browse extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    books: state.books,
-    loading: state.loading
+    books: state.searchReducer.books,
+    loading: state.searchReducer.loading
 });
+
+/*const mapDispatchToProps = (dispatch) => ({
+    modalOn: (index) => {
+        dispatch(openModal(index))
+    },
+    addItem: () => {
+        dispatch(addItem())
+    }
+});*/
+
 
 let Container = connect(mapStateToProps, { fetchBooksWithRedux })(Browse);
 
