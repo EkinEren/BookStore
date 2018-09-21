@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchBooksWithRedux } from "../actions/SearchBook";
-import { Spin, Icon, Pagination, Button, Form, Input, Col } from "antd";
+import { Spin, Icon, Button, Form, Input } from "antd";
 import CardItem from "./CardItem";
 import '../styles/Card.css';
 
@@ -31,7 +31,7 @@ class Browse extends React.Component {
 
 
     render() {
-        { console.log(this.props.books) }
+
         const { loading } = this.props;
 
         if (loading) {
@@ -53,22 +53,22 @@ class Browse extends React.Component {
                         <Button type="danger" htmlType="reset" className="Button-space" > Reset </Button>
                     </fieldset>
                 </Form>
-                {
-                    this.props.books &&
-                    this.props.books.map((book, index) => {
-                        return (
-                            <div style={{ padding: '30px' }}>
-                                <Col span={8}>
-                                    <CardItem
-                                        key={index}
-                                        title={book.volumeInfo.title}
-                                        image={book.volumeInfo.imageLinks.smallThumbnail}
-                                        year={book.volumeInfo.publishedDate} />
-                                </Col>
-                            </div>
-                        )
-                    })
-                }
+                <div style={{ padding: '30px', display: "flex", flexWrap: "wrap" }}>
+                    {
+
+                        this.props.books &&
+                        this.props.books.map((book, index) => {
+                            return (
+                                <CardItem
+                                    key={index}
+                                    title={book.volumeInfo.title}
+                                    image={book.volumeInfo.imageLinks.smallThumbnail}
+                                    year={book.volumeInfo.publishedDate} />
+
+                            )
+                        })
+                    }
+                </div>
             </div>
         );
     }
@@ -82,19 +82,3 @@ const mapStateToProps = state => ({
 let Container = connect(mapStateToProps, { fetchBooksWithRedux })(Browse);
 
 export default Container;
-
-/*<div className="card-deck">
-  <div className="card">
-    <img className="card-img-top" src={book.volumeInfo.imageLinks.smallThumbnail} alt="Card image cap"/>
-    <div class="card-body">
-      <h5 class="card-title">{book.volumeInfo.title}</h5>
-      <p class="card-text">{book.volumeInfo.imageLinks.smallThumbnail}</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">{book.volumeInfo.publishedDate}</small>
-    </div>
-  </div>
-</div>*/
-
-//üstte 2 tane smallthumbnail var ondan error atmış
-//https://getbootstrap.com/docs/4.0/components/card/

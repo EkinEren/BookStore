@@ -22,7 +22,7 @@ const searchReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                books: title(action.payload)
+                books: getBookData(action.payload)
             };
 
         case FETCH_BOOKS_FAILURE:
@@ -38,7 +38,7 @@ const searchReducer = (state = initialState, action) => {
     }
 }
 
-function title(payload) {
+function getBookData(payload) {
     console.log(payload);
     const { items } = payload;
     console.log(items);

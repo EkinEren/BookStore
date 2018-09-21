@@ -1,23 +1,55 @@
 import React from 'react';
 import '../styles/Card.css';
-import { Card, Col, Row } from 'antd';
+import { Card, Button, Modal } from 'antd';
 
-//max-height in card.css
 class CardItem extends React.Component {
+
+    state = { visible: false }
+
+    showModal = () => {
+        this.setState({
+            visible: true,
+        });
+    }
+
+    handleOk = (e) => {
+        console.log(e);
+        this.setState({
+            visible: false,
+        });
+    }
+
+    handleCancel = (e) => {
+        console.log(e);
+        this.setState({
+            visible: false,
+        });
+    }
+
 
     render() {
         return (
-            <div>
-                <Row gutter={12}>
-                    <Card
-                        title={this.props.title}
-                        style={{ width: 150 }}
-                        className="well"
-                        cover={<img src={this.props.image} alt="Not available" />}
+            <div style={{ display: "inline-block", padding: 30 }}>
+                <Card
+                    title={this.props.title}
+                    className="well"
+                    cover={<img src={this.props.image} alt="Not available" style={{ width: 200, height: 250, paddingTop: 10, paddingLeft: 35 }} />}
+                >
+                    <p>{this.props.year}</p>
+                    <Button type="primary" className="Button-space" onClick={this.showModal}> Details </Button>
+                    <Button type="primary" className="Button-space"> Add to Cart </Button>
+                    <Modal
+                        title="Book Details"
+                        style={{ textAlign: "center" }}
+                        visible={this.state.visible}
+                        onOk={this.handleOk}
+                        onCancel={this.handleCancel}
                     >
-                        <p>{this.props.year}</p>
-                    </Card>
-                </Row>
+                        <p>Some contents...</p>
+                        <p>Some contents...</p>
+                        <p>Some contents...</p>
+                    </Modal>
+                </Card>
             </div>
         );
     }

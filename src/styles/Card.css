@@ -1,7 +1,7 @@
 @import '~antd/dist/antd.css';
 
 .well {
-    min-height: 20px;
+    max-width : 100%;
     padding: 19px;
     margin-bottom: 20px;
     background-color: #fafafa;
