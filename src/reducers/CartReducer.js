@@ -10,9 +10,15 @@ const initialState = {
 const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ITEM:
-            return {
-                itemsInCart: state.itemsInCart.concat(action.payload)
-            };
+            //prevent duplicates
+            let index = state.itemsInCart.findIndex(item => item.id === action.payload.id);
+            if (index === -1) {
+                return {
+                    itemsInCart: state.itemsInCart.concat(action.payload)
+                };
+            }
+            return state
+
         case REMOVE_ITEM:
             return {
                 itemsInCart: state.itemsInCart.filter(element => element !== action.payload[0])
@@ -23,6 +29,3 @@ const cartReducer = (state = initialState, action) => {
 }
 
 export default cartReducer;
-
-//add loading from searchreducer or this ones? numberOfItems gerek yok 
-// [...state.itemsInCart,action.payload]

@@ -74,9 +74,13 @@ class Browse extends React.Component {
 
 const mapStateToProps = state => ({
     books: state.searchReducer.books,
-    loading: state.searchReducer.loading
+    loading: state.searchReducer.loading,
+    itemsInCart: state.cartReducer.itemsInCart
 });
 
 let Container = connect(mapStateToProps, { fetchBooksWithRedux, addItem })(Browse);
 
 export default Container;
+
+/*(this.props.itemsInCart.filter(item => item.id !== index.id)) ?
+            this.props.addItem(this.props.books[index]) : toggleAlert = true*/
