@@ -2,7 +2,7 @@
 
 <img src = "https://img.shields.io/badge/react-16.5.2-blue.svg"/> <img src = "https://img.shields.io/badge/npm-5.6.0-green.svg"/> 
 <img src = "https://img.shields.io/badge/redux-4.0.0-yellow.svg"/> <img src = "https://img.shields.io/badge/nodejs-8.11.4-orange.svg"/>
-<img src = "https://img.shields.io/badge/react-router-dom-4.3.1-lightgrey.svg"/>
+<img src = "https://img.shields.io/badge/reactrouter-4.3.1-lightgrey.svg"/>
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
@@ -29,3 +29,29 @@ I've learned a great deal in using redux while working on this project, and it h
 <li>Antd and bootstrap - For styling</li>
 <li>Google Books API - Data is fetched through this API.</li>
 </ul>
+
+## Features
+
+<ul>
+<li>Search for a specific book by title, author or any keyword.</li>
+<li>View the details of a book, such as a small summary, year it's published or authors.</li>
+<li>Add books you'd like to buy into your shopping cart.</li>
+<li>View the items in your cart and manage your purchases, remove an item from the cart, see total cost, checkout(not literally :) ).</li>
+</ul>
+
+## Getting Started
+
+<h5>Prerequisites</h5>
+
+<ul>
+<li>Node.js</li>
+<li>NPM</li>
+</ul>
+
+<h5>Installation</h5>
+
+Coming soon
+
+## Todo
+
+Make checkout by popup or alert, do not allow duplicate id books into table, add more stuff to 'details'.In table, render for more than one authors.
