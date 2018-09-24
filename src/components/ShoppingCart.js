@@ -4,14 +4,13 @@ import { Table, Button } from 'antd';
 import { removeItem } from "../actions/CartActions";
 
 const { Column } = Table;
-let totalCostArray = [];
-let totalCost = 0;
 
 class ShoppingCart extends React.Component {
 
     render() {
-
+        let totalCostArray = [];
         totalCostArray = (this.props.itemsInCart.map(item => (item.saleInfo.listPrice.amount)))
+        let totalCost = totalCostArray.length !== 0 ? totalCostArray.reduce((total, amount) => total + amount) : 0
 
         return (
             <div>
@@ -43,7 +42,7 @@ class ShoppingCart extends React.Component {
                         )}
                     />
                 </Table>
-                <p><b>Total Cost :</b> {totalCostArray.length !== 0 ? totalCost = totalCostArray.reduce((total, amount) => total + amount) : totalCost = 0}</p>
+                <p><b>Total Cost :</b> {totalCost} </p>
             </div>
         );
     }
