@@ -12,14 +12,13 @@ const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ITEM:
             return {
-
                 itemsInCart: state.itemsInCart.concat(action.payload),
-                numberOfItems: state.itemsInCart.length
+                numberOfItems: state.itemsInCart.length + 1
             };
         case REMOVE_ITEM:
             return {
-                itemsInCart: state.itemsInCart.filter(element => element !== action.payload),
-                numberOfItems: state.itemsInCart.length
+                itemsInCart: state.itemsInCart.filter(element => element !== action.payload[0]),
+                numberOfItems: state.itemsInCart.length - 1
             };
         default:
             return state;
@@ -27,3 +26,5 @@ const cartReducer = (state = initialState, action) => {
 }
 
 export default cartReducer;
+
+//add loading from searchreducer or this ones?
