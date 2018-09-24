@@ -16,7 +16,7 @@ class ShoppingCart extends React.Component {
         return (
             <div>
                 <h1>Books in your cart : </h1>
-                <p>Number of items in your cart : {this.props.itemsInCart.length + 1}</p>
+                <p>Number of items in your cart : {this.props.itemsInCart.length}</p>
                 <Table dataSource={this.props.itemsInCart} rowKey="id" >
                     <Column
                         title="Title"
