@@ -12,6 +12,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 <br>
 
 [![Build Status](https://travis-ci.com/EkinEren/BookStore.svg?branch=master)](https://travis-ci.com/EkinEren/BookStore)
+<br>
 <b>Github Pages:</b> [Live Demo](https://EkinEren.github.io/BookStore/)
 
 ## Motivation
