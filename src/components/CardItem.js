@@ -41,7 +41,7 @@ class CardItem extends React.Component {
                 >
                     <p>{this.props.price} TRY</p>
                     <Button type="primary" className="Button-space" onClick={this.showModal}> Details </Button>
-                    <Button type="primary" className="Button-space"> Add to Cart </Button>
+                    <Button type="primary" className="Button-space" onClick={this.props.addToCart}> Add to Cart </Button>
                     <Modal
                         title="Book Details"
                         style={{ textAlign: "center" }}
