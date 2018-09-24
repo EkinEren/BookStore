@@ -4,21 +4,18 @@ import {
 } from '../actions/CartActions';
 
 const initialState = {
-    itemsInCart: [],
-    numberOfItems: 0
+    itemsInCart: []
 }
 
 const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ITEM:
             return {
-                itemsInCart: state.itemsInCart.concat(action.payload),
-                numberOfItems: state.itemsInCart.length + 1
+                itemsInCart: state.itemsInCart.concat(action.payload)
             };
         case REMOVE_ITEM:
             return {
-                itemsInCart: state.itemsInCart.filter(element => element !== action.payload[0]),
-                numberOfItems: state.itemsInCart.length - 1
+                itemsInCart: state.itemsInCart.filter(element => element !== action.payload[0])
             };
         default:
             return state;

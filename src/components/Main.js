@@ -37,7 +37,7 @@ class MainContent extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  numberOfItems: state.cartReducer.numberOfItems
+  numberOfItems: state.cartReducer.itemsInCart.length
 });
 
 let Main = connect(mapStateToProps, null)(MainContent);

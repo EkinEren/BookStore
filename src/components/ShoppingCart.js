@@ -16,7 +16,7 @@ class ShoppingCart extends React.Component {
         return (
             <div>
                 <h1>Books in your cart : </h1>
-                <p>Number of items in your cart : {this.props.numberOfItems}</p>
+                <p>Number of items in your cart : {this.props.itemsInCart.length + 1}</p>
                 <Table dataSource={this.props.itemsInCart} rowKey="id" >
                     <Column
                         title="Title"
@@ -53,8 +53,7 @@ class ShoppingCart extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    itemsInCart: state.cartReducer.itemsInCart,
-    numberOfItems: state.cartReducer.numberOfItems
+    itemsInCart: state.cartReducer.itemsInCart
 });
 
 let Cart = connect(mapStateToProps, { removeItem })(ShoppingCart);
