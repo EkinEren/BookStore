@@ -1,6 +1,5 @@
 export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
-export const CHECKOUT = "CHECKOUT";
 
 export const addItem = (payload) => (dispatch) => {
     dispatch({
@@ -15,7 +14,3 @@ export const removeItem = (payload) => (dispatch) => {
         payload
     })
 };
-
-/*export const checkout = () => ({
-    type: CHECKOUT
-})*/

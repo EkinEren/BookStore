@@ -39,9 +39,6 @@ class ShoppingCart extends React.Component {
                         render={(obj, row) => (
                             <span>
                                 <Button type="danger" onClick={() => this.props.removeItem(this.props.itemsInCart.filter(item => item.id === row.id))}>Delete</Button>
-                                {console.log(row.id)}
-                                {console.log(this.props.itemsInCart.filter(item => item.id === row.id))}
-                                {console.log(this.props.itemsInCart.map(item => (item.saleInfo.listPrice.amount)))}
                             </span>
                         )}
                     />

@@ -39,9 +39,7 @@ const searchReducer = (state = initialState, action) => {
 }
 
 function getBookData(payload) {
-    console.log(payload);
     const { items } = payload;
-    console.log(items);
     return items.map(item => (item))
 }
 
