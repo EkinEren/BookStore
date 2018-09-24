@@ -11,12 +11,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 <p>This prototype project is made with react and redux. React-router is used for navbar.</p>
 <br>
 
-<p><b>Github Pages:</b> [Live Demo](https://EkinEren.github.io/BookStore/)</p>
+<b>Github Pages:</b> [Live Demo](https://EkinEren.github.io/BookStore/)
 
 ## Motivation
 
 As a developer who've newly grasphed the foundations of react & react-router and learning redux, I wanted to create a project that uses both. 
-I've learned a great deal in using redux while working on this project, and it has been a good practice to me. :)
+I've learned a great deal in using redux while working on this project, and it has been good practice to me. :)
 
 ## Built with
 
