@@ -57,4 +57,3 @@ let Cart = connect(mapStateToProps, { removeItem })(ShoppingCart);
 export default Cart;
 
 //to do : make delete a link button, add footer checkout. Footer is a pain in the booty, can just nvm. render for more than one authored books, stateless func çevir.
-//id göre alıyor, birden fazla aynı id item eklemesin. eklemeye çalışırsa alert (browse sayfasında)
