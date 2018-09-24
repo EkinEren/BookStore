@@ -27,4 +27,5 @@ const cartReducer = (state = initialState, action) => {
 
 export default cartReducer;
 
-//add loading from searchreducer or this ones?
+//add loading from searchreducer or this ones? numberOfItems gerek yok 
+// [...state.itemsInCart,action.payload]

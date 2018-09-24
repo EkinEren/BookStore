@@ -4,11 +4,8 @@ import { Card, Button, Modal } from 'antd';
 
 class CardItem extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            isVisible: false
-        }
+    state = {
+        isVisible: false
     }
 
     showModal = () => {
@@ -58,5 +55,3 @@ class CardItem extends React.Component {
 }
 
 export default CardItem;
-
-//add functionality to "add to cart" from redux

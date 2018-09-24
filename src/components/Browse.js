@@ -10,11 +10,8 @@ const antLoadingIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 
 class Browse extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            input: ''
-        }
+    state = {
+        input: ''
     }
 
     handleSubmit = (e) => {
@@ -57,7 +54,6 @@ class Browse extends React.Component {
                 <div style={{ padding: '30px', display: "flex", flexWrap: "wrap" }}>
                     {
 
-                        this.props.books &&
                         this.props.books.map((book, index) => {
                             return (
                                 <CardItem
