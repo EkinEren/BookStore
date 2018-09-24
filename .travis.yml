@@ -1,9 +1,10 @@
 language: node_js
 node_js:
  - "node"
-after_success:
- - git config --global user.name "EkinEren"
- - git config --global user.email "ekinnazeren@gmail.com"
- - git remote rm origin
- - git remote add origin https://EkinEren:${GH_TOKEN}@github.com/EkinEren/BookStore.git
- - npm run deploy
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep-history: true
+  on:
+    branch: master
