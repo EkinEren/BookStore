@@ -4,8 +4,6 @@
 <img src = "https://img.shields.io/badge/redux-4.0.0-yellow.svg"/> <img src = "https://img.shields.io/badge/nodejs-8.11.4-orange.svg"/>
 <img src = "https://img.shields.io/badge/reactrouter-4.3.1-lightgrey.svg"/> 
 
-[![Build Status](https://travis-ci.com/EkinEren/BookStore.svg?branch=master)](https://travis-ci.com/EkinEren/BookStore)
-
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 <p>This simple online bookstore project uses Google Books API to fetch e-books data, that are available and for sale. </p>
@@ -13,6 +11,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 <p>This prototype project is made with react and redux. React-router is used for navbar.</p>
 <br>
 
+[![Build Status](https://travis-ci.com/EkinEren/BookStore.svg?branch=master)](https://travis-ci.com/EkinEren/BookStore)
 <b>Github Pages:</b> [Live Demo](https://EkinEren.github.io/BookStore/)
 
 ## Motivation
