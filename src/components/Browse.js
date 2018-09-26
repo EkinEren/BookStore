@@ -45,7 +45,7 @@ class Browse extends React.Component {
                 <Form className="well" layout="inline" onSubmit={this.handleSubmit}>
                     <fieldset className="fieldset">
                         <legend>Search Books...</legend>
-                        <label htmlFor="title" style={{ fontSize: "large" }}> Title: </label>
+                        <label htmlFor="title" style={{ fontSize: "large" }}> Keyword: </label>
                         <Input type="text" id="title" name="title" style={{ width: 200, marginLeft: 20 }} onChange={this.handleChange} />&nbsp;
                         <Button type="primary" htmlType="submit" className="Button-space"> Submit </Button>
                         <Button type="danger" htmlType="reset" className="Button-space" > Reset </Button>
@@ -61,6 +61,9 @@ class Browse extends React.Component {
                                     title={book.volumeInfo.title}
                                     image={book.volumeInfo.imageLinks.smallThumbnail}
                                     price={book.saleInfo.listPrice.amount}
+                                    authors={book.volumeInfo.authors.join(', ')}
+                                    publisher={book.volumeInfo.publisher}
+                                    date={book.volumeInfo.publishedDate}
                                     addToCart={() => this.props.addItem(this.props.books[index])}
                                     description={book.volumeInfo.description} />
                             )
@@ -74,13 +77,9 @@ class Browse extends React.Component {
 
 const mapStateToProps = state => ({
     books: state.searchReducer.books,
-    loading: state.searchReducer.loading,
-    itemsInCart: state.cartReducer.itemsInCart
+    loading: state.searchReducer.loading
 });
 
 let Container = connect(mapStateToProps, { fetchBooksWithRedux, addItem })(Browse);
 
 export default Container;
-
-/*(this.props.itemsInCart.filter(item => item.id !== index.id)) ?
-            this.props.addItem(this.props.books[index]) : toggleAlert = true*/

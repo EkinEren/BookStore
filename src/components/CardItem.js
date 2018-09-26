@@ -46,7 +46,12 @@ class CardItem extends React.Component {
                         onOk={this.handleOk}
                         onCancel={this.handleCancel}
                     >
-                        <p>{this.props.description}</p>
+                        <p><b>Title : </b>{this.props.title}</p>
+                        <p><b>Author(s) : </b>{this.props.authors}</p>
+                        <p><b>Publisher : </b>{this.props.publisher}</p>
+                        <p><b>Published Date : </b>{this.props.date}</p>
+                        <p><b>Description : </b>{this.props.description}</p>
+
                     </Modal>
                 </Card>
             </div>

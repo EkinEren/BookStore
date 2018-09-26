@@ -4,7 +4,8 @@ import {
 } from '../actions/CartActions';
 
 const initialState = {
-    itemsInCart: []
+    itemsInCart: [],
+    totalCost: 0
 }
 
 const cartReducer = (state = initialState, action) => {
@@ -14,14 +15,16 @@ const cartReducer = (state = initialState, action) => {
             let index = state.itemsInCart.findIndex(item => item.id === action.payload.id);
             if (index === -1) {
                 return {
-                    itemsInCart: state.itemsInCart.concat(action.payload)
+                    itemsInCart: state.itemsInCart.concat(action.payload),
+                    totalCost: state.totalCost + action.payload.saleInfo.listPrice.amount
                 };
             }
             return state
 
         case REMOVE_ITEM:
             return {
-                itemsInCart: state.itemsInCart.filter(element => element !== action.payload[0])
+                itemsInCart: state.itemsInCart.filter(element => element !== action.payload[0]),
+                totalCost: state.totalCost - action.payload[0].saleInfo.listPrice.amount
             };
         default:
             return state;

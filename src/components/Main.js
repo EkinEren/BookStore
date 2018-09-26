@@ -10,7 +10,7 @@ class MainContent extends React.Component {
 
   render() {
     return (
-      <Router>
+      <Router basename="/BookStore/">
         <div className="container">
           <nav className="navbar navbar-default">
             <div className="container-fluid">
@@ -25,10 +25,10 @@ class MainContent extends React.Component {
             </div>
           </nav>
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/container" component={Container} />
-            <Route path="/cart" component={Cart} />
+            <Route exact path='/' component={Home} />
+            <Route path='/about' component={About} />
+            <Route path='/container' component={Container} />
+            <Route path='/cart' component={Cart} />
           </Switch>
         </div>
       </Router>

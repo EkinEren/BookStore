@@ -2,21 +2,16 @@ import React from "react";
 import { connect } from "react-redux";
 import { Table, Button } from 'antd';
 import { removeItem } from "../actions/CartActions";
-
 const { Column } = Table;
 
 class ShoppingCart extends React.Component {
 
     render() {
-        let totalCostArray = [];
-        totalCostArray = (this.props.itemsInCart.map(item => (item.saleInfo.listPrice.amount)))
-        let totalCost = totalCostArray.length !== 0 ? totalCostArray.reduce((total, amount) => total + amount) : 0
-
         return (
             <div>
-                <h1>Books in your cart : </h1>
+                <h1>Books in your cart  </h1>
                 <p>Number of items in your cart : {this.props.itemsInCart.length}</p>
-                <Table dataSource={this.props.itemsInCart} rowKey="id" >
+                <Table dataSource={this.props.itemsInCart} rowKey="id" footer={() => 'Total Cost : ' + this.props.totalCost} >
                     <Column
                         title="Title"
                         dataIndex="volumeInfo.title"
@@ -24,8 +19,13 @@ class ShoppingCart extends React.Component {
                     />
                     <Column
                         title="Author(s)"
-                        dataIndex="volumeInfo.authors[0]"
-                        key="volumeInfo.authors[0]"
+                        dataIndex="volumeInfo.authors"
+                        key="volumeInfo.authors"
+                        render={authors => (
+                            <span>
+                                {authors.join(', ')}
+                            </span>
+                        )}
                     />
                     <Column
                         title="Price"
@@ -42,18 +42,17 @@ class ShoppingCart extends React.Component {
                         )}
                     />
                 </Table>
-                <p><b>Total Cost :</b> {totalCost} </p>
+                <Button type="primary" style={{ float: "right" }} onClick={() => alert("Checkout - Total Cost : " + this.props.totalCost)}>Checkout</Button>
             </div>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    itemsInCart: state.cartReducer.itemsInCart
+    itemsInCart: state.cartReducer.itemsInCart,
+    totalCost: state.cartReducer.totalCost
 });
 
 let Cart = connect(mapStateToProps, { removeItem })(ShoppingCart);
 
 export default Cart;
-
-//to do : make delete a link button, add footer checkout. Footer is a pain in the booty, can just nvm. render for more than one authored books, stateless func çevir.

@@ -2,7 +2,7 @@ export const FETCH_BOOKS_BEGIN = 'FETCH_BOOKS_BEGIN';
 export const FETCH_BOOKS_SUCCESS = 'FETCH_BOOKS_SUCCESS';
 export const FETCH_BOOKS_FAILURE = 'FETCH_BOOKS_FAILURE';
 
-const APIKEY = process.env.REACT_APP_BOOKS_API_KEY;
+const APIKEY = process.env.REACT_APP_BOOKS_API_KEY
 const apiurl = `https://www.googleapis.com/books/v1/volumes?printType=books&filter=paid-ebooks&key=${APIKEY}`
 
 //request

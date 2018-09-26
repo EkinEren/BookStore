@@ -2,7 +2,8 @@
 
 <img src = "https://img.shields.io/badge/react-16.5.2-blue.svg"/> <img src = "https://img.shields.io/badge/npm-5.6.0-green.svg"/> 
 <img src = "https://img.shields.io/badge/redux-4.0.0-yellow.svg"/> <img src = "https://img.shields.io/badge/nodejs-8.11.4-orange.svg"/>
-<img src = "https://img.shields.io/badge/reactrouter-4.3.1-lightgrey.svg"/> 
+<img src = "https://img.shields.io/badge/reactrouter-4.3.1-lightgrey.svg"/>
+[![Build Status](https://travis-ci.com/EkinEren/BookStore.svg?branch=master)](https://travis-ci.com/EkinEren/BookStore)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
@@ -11,8 +12,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 <p>This prototype project is made with react and redux. React-router is used for navbar.</p>
 <br>
 
-[![Build Status](https://travis-ci.com/EkinEren/BookStore.svg?branch=master)](https://travis-ci.com/EkinEren/BookStore)
-<br>
 <b>Github Pages:</b> [Live Demo](https://EkinEren.github.io/BookStore/)
 
 ## Motivation
@@ -28,6 +27,7 @@ I've learned a great deal in using redux while working on this project, and it h
 <ul><li>Redux thunk - Middleware for redux</li>
 <li>Redux logger - Logging tool for redux</li></ul>
 <li>Nodejs - Run-time enviroment</li>
+<li>React Router - Used for routing & navbar</li>
 <li>Antd and bootstrap - For styling</li>
 <li>Google Books API - Data is fetched through this API.</li>
 </ul>
@@ -38,7 +38,7 @@ I've learned a great deal in using redux while working on this project, and it h
 <li>Search for a specific book by title, author or any keyword.</li>
 <li>View the details of a book, such as a small summary, year it's published or authors.</li>
 <li>Add books you'd like to buy into your shopping cart.</li>
-<li>View the items in your cart and manage your purchases, remove an item from the cart, see total cost, checkout(not literally :) ).</li>
+<li>View the items in your cart and manage your purchases, remove an item from the cart, see total cost, see checkout.</li>
 </ul>
 
 ## Getting Started
@@ -52,8 +52,12 @@ I've learned a great deal in using redux while working on this project, and it h
 
 <h5>Installation</h5>
 
-Coming soon
+<p>Clone or download this repository. Then execute the command</p>
 
-## Todo
+```npm install```
 
-Make checkout by popup or alert, do not allow duplicate id books into table, add more stuff to 'details'.In table, render for more than one authors.
+</p>to install the packages required for this project to work. Then, </p>
+
+```npm start``` 
+
+<p>to start the application in your localhost :)</p> 
