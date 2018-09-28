@@ -36,7 +36,7 @@ class CardItem extends React.Component {
                     className="well"
                     cover={<img src={this.props.image} alt="Not available" style={{ width: 200, height: 250, paddingTop: 10, paddingLeft: 35 }} />}
                 >
-                    <p>{this.props.price} TRY</p>
+                    <p>{this.props.price} {this.props.currencyCode}</p>
                     <Button type="primary" className="Button-space" onClick={this.showModal}> Details </Button>
                     <Button type="primary" className="Button-space" onClick={this.props.addToCart}> Add to Cart </Button>
                     <Modal

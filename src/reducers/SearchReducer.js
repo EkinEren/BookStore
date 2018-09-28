@@ -15,7 +15,8 @@ const searchReducer = (state = initialState, action) => {
         case FETCH_BOOKS_BEGIN:
             return {
                 ...state,
-                loading: true
+                loading: true,
+                error: null
             };
 
         case FETCH_BOOKS_SUCCESS:
@@ -29,7 +30,7 @@ const searchReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                error: "Error! Books couldn't be loaded.",
+                error: action.payload,
                 books: []
             };
 
@@ -40,7 +41,8 @@ const searchReducer = (state = initialState, action) => {
 
 function getBookData(payload) {
     const { items } = payload;
-    return items.map(item => (item))
+    const paidBooks = items.filter(book => book.saleInfo.listPrice)
+    return paidBooks.map(item => (item))
 }
 
 export default searchReducer;

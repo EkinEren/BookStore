@@ -15,8 +15,9 @@ export const fetchBooksSuccess = (payload) => ({
     payload
 });
 
-export const fetchBooksFailure = () => ({
-    type: FETCH_BOOKS_FAILURE
+export const fetchBooksFailure = (payload) => ({
+    type: FETCH_BOOKS_FAILURE,
+    payload
 });
 
 
@@ -28,10 +29,7 @@ export function fetchBooksWithRedux(input) {
             if (response.status === 200) {
                 dispatch(fetchBooksSuccess(json))
             }
-            else {
-                dispatch(fetchBooksFailure())
-            }
-        })
+        }).catch(error => dispatch(fetchBooksFailure(error)));
     }
 }
 

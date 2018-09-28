@@ -11,7 +11,7 @@ class ShoppingCart extends React.Component {
             <div>
                 <h1>Books in your cart  </h1>
                 <p>Number of items in your cart : {this.props.itemsInCart.length}</p>
-                <Table dataSource={this.props.itemsInCart} rowKey="id" footer={() => 'Total Cost : ' + this.props.totalCost} >
+                <Table dataSource={this.props.itemsInCart} rowKey="id" footer={() => 'Total Cost : ' + Math.abs((this.props.totalCost).toFixed(2))} >
                     <Column
                         title="Title"
                         dataIndex="volumeInfo.title"
@@ -42,7 +42,8 @@ class ShoppingCart extends React.Component {
                         )}
                     />
                 </Table>
-                <Button type="primary" style={{ float: "right" }} onClick={() => alert("Checkout - Total Cost : " + this.props.totalCost)}>Checkout</Button>
+                <Button type="primary" style={{ float: "right" }} onClick={() => alert(Math.abs(this.props.totalCost) !== 0 ?
+                    ("Checkout - Total Cost : " + Math.abs((this.props.totalCost).toFixed(2))) : ("Add some books to your cart!"))}>Checkout</Button>
             </div>
         );
     }

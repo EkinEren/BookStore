@@ -27,10 +27,9 @@ class Browse extends React.Component {
         })
     }
 
-
     render() {
 
-        const { loading } = this.props;
+        const { loading, error } = this.props;
 
         if (loading) {
             return <div>
@@ -51,25 +50,31 @@ class Browse extends React.Component {
                         <Button type="danger" htmlType="reset" className="Button-space" > Reset </Button>
                     </fieldset>
                 </Form>
-                <div style={{ padding: '30px', display: "flex", flexWrap: "wrap" }}>
-                    {
 
-                        this.props.books.map((book, index) => {
-                            return (
-                                <CardItem
-                                    key={index}
-                                    title={book.volumeInfo.title}
-                                    image={book.volumeInfo.imageLinks.smallThumbnail}
-                                    price={book.saleInfo.listPrice.amount}
-                                    authors={book.volumeInfo.authors.join(', ')}
-                                    publisher={book.volumeInfo.publisher}
-                                    date={book.volumeInfo.publishedDate}
-                                    addToCart={() => this.props.addItem(this.props.books[index])}
-                                    description={book.volumeInfo.description} />
-                            )
-                        })
-                    }
-                </div>
+                {error !== null ? <p style={{ textAlign: "center" }}>The books you were searching for couldn't be found.</p> :
+
+                    <div style={{ padding: '30px', display: "flex", flexWrap: "wrap" }}>
+                        {
+
+                            this.props.books.map((book, index) => {
+                                return (
+                                    <CardItem
+                                        key={index}
+                                        title={book.volumeInfo.title}
+                                        image={book.volumeInfo.imageLinks.smallThumbnail}
+                                        price={book.saleInfo.listPrice.amount}
+                                        currencyCode={book.saleInfo.listPrice.currencyCode}
+                                        authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : "Not provided"}
+                                        publisher={book.volumeInfo.publisher}
+                                        date={book.volumeInfo.publishedDate}
+                                        addToCart={() => this.props.addItem(this.props.books[index])}
+                                        description={book.volumeInfo.description}
+                                    />
+                                )
+                            })
+                        }
+                    </div>
+                }
             </div>
         );
     }
@@ -77,7 +82,9 @@ class Browse extends React.Component {
 
 const mapStateToProps = state => ({
     books: state.searchReducer.books,
-    loading: state.searchReducer.loading
+    loading: state.searchReducer.loading,
+    error: state.searchReducer.error,
+    isduplicate: state.cartReducer.isduplicate
 });
 
 let Container = connect(mapStateToProps, { fetchBooksWithRedux, addItem })(Browse);
