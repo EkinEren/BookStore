@@ -62,6 +62,8 @@ I've learned a great deal in using redux while working on this project, and it h
 
 <p>to start the application in your localhost :)</p> 
 
+<b>Note :</b> You may have to provide your own API key for google books api. Details of using the api can be found in [Google Books API Documents](https://developers.google.com/books/docs/v1/using)
+
 ## Contribute
 
 You are welcome to open issues and give feedback on how the project can improve.

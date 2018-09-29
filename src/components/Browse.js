@@ -83,8 +83,7 @@ class Browse extends React.Component {
 const mapStateToProps = state => ({
     books: state.searchReducer.books,
     loading: state.searchReducer.loading,
-    error: state.searchReducer.error,
-    isduplicate: state.cartReducer.isduplicate
+    error: state.searchReducer.error
 });
 
 let Container = connect(mapStateToProps, { fetchBooksWithRedux, addItem })(Browse);
