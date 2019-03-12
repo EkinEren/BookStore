@@ -25,6 +25,11 @@
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/(?:.+?)/__tests__/"
+    ]
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
