@@ -1,7 +1,7 @@
 ## E-Book Store Application
 
-<img src = "https://img.shields.io/badge/react-16.5.2-blue.svg"/> <img src = "https://img.shields.io/badge/npm-5.6.0-green.svg"/> 
-<img src = "https://img.shields.io/badge/redux-4.0.0-yellow.svg"/> <img src = "https://img.shields.io/badge/nodejs-8.11.4-orange.svg"/>
+<img src = "https://img.shields.io/badge/react-16.8.4-blue.svg"/> <img src = "https://img.shields.io/badge/npm-6.7.0-green.svg"/> 
+<img src = "https://img.shields.io/badge/redux-4.0.1-yellow.svg"/> <img src = "https://img.shields.io/badge/nodejs-11.11.0-orange.svg"/>
 <img src = "https://img.shields.io/badge/reactrouter-4.3.1-lightgrey.svg"/>
 [![Build Status](https://travis-ci.com/EkinEren/BookStore.svg?branch=master)](https://travis-ci.com/EkinEren/BookStore)
 
